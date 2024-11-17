@@ -1,32 +1,34 @@
 const express = require('express');
 const app = express();
-const dotenv = require("dotenv").config();
-
-const port = process.env.PORT || 3000;  // Fallback to 3000 if not set in .env
-
+const dotenv = require("dotenv").config();  // Load environment variables from .env file
 const mongoose = require("mongoose");
+const postRoutes = require('./routes/postRoutes');  // Import your post routes
 
-mongoose.connect(process.env.MONGO_URI);
-const db = mongoose.connection;
 
-db.on("error", (err) => {
-    console.error("MongoDB connection error:", err);
-});
+app.use(express.json());  
+app.use('/api', postRoutes);  // All post routes will be prefixed with /api
 
-db.once("open", () => {
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
     console.log("Connected to MongoDB");
-});
-
-
-db.on("error", (err) => {
+  })
+  .catch((err) => {
     console.error("MongoDB connection error:", err);
-});
+  });
 
 
 app.get("/", (req, res) => {
     res.send('Hello world !!');
 });
 
+const port = process.env.PORT ; 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+});
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!', error: err.message });
 });
