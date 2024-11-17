@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const dotenv = require("dotenv").config();  // Load environment variables from .env file
+const dotenv = require("dotenv").config();  
 const mongoose = require("mongoose");
-const postRoutes = require('./routes/postRoutes');  // Import your post routes
+const postRoutes = require('./routes/postRoutes'); 
 
 
 app.use(express.json());  
