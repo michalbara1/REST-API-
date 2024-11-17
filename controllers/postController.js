@@ -34,3 +34,23 @@ exports.getAllPosts = async (req, res) => {
     });
   }
 };
+exports.getPostById = async (req, res) => {
+  const postId = req.params.id; 
+  try {
+    const post = await Post.findById(postId); 
+    if (!post) {
+      // If the post isn't found, return a 404 error
+      return res.status(404).json({ message: 'Post not found' });
+    }
+    res.status(200).json({
+      message: 'Post fetched successfully',
+      post: post
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: 'Failed to fetch post',
+      error: error.message
+    });
+  }
+};

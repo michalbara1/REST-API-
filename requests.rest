@@ -9,3 +9,6 @@ Content-Type: application/json
 }
 ### Get All Posts
 GET http://localhost:3000/api/posts
+###Get post by Id
+GET http://localhost:3000/api/posts/6739d3d6342061c73896d574
+
