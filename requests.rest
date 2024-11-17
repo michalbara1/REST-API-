@@ -5,10 +5,14 @@ Content-Type: application/json
 {
   "title": "My First Post",
   "content": "This is the content of my first post.",
-  "owner": "michal"
+  "senderId": "1235"
 }
 ### Get All Posts
-GET http://localhost:3000/api/posts
+GET http://localhost:3000/api/getposts
 ###Get post by Id
-GET http://localhost:3000/api/posts/6739d3d6342061c73896d574
+GET http://localhost:3000/api/posts/673a13dd7b94e5067bea5be9
+###Get post by sender Id
+GET http://localhost:3000/api/posts?sender=124
+
+
 

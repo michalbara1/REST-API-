@@ -9,9 +9,14 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  owner:{
-    type:String,
-    required:true,}
+  owner: {
+    type: String,
+    required: false,
+  },
+  senderId: { 
+    type: String,
+    required: true, 
+  },
 });
 
 const Post = mongoose.model('Post', postSchema);

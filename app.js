@@ -6,7 +6,7 @@ const postRoutes = require('./routes/postRoutes');
 
 
 app.use(express.json());  
-app.use('/api', postRoutes);  // All post routes will be prefixed with /api
+app.use('/api', postRoutes);  // post routes will be prefixed with /api
 
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
