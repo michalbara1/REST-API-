@@ -4,9 +4,9 @@ exports.createPost = async (req, res) => {
   try {
     const { title, content, owner, senderId } = req.body;
     if (!senderId) {
-      return res.status(400).json({ message: "senderId is requiredd" });
+      return res.status(400).json({ message: "senderId is reequiredd" });
     }
-    const newPost = new Post({
+    const newPost = new Post({ 
       title,
       content,
       owner,
