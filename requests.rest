@@ -15,4 +15,31 @@ GET http://localhost:3000/api/posts/673a13dd7b94e5067bea5be9
 GET http://localhost:3000/api/posts?sender=124
 
 
+# 1. Create a comment
+POST http://localhost:3000/comments
+Content-Type: application/json
+{
+  "content": "This is a comment",
+  "postId": "63d07bc2e1a4a76d88d8e5fb",  // replace with an actual post ID
+  "owner": "User1"
+}
 
+# 2. Get all comments
+GET http://localhost:3000/comments
+
+# 3. Get a comment by ID
+GET http://localhost:3000/comments/63d07bc2e1a4a76d88d8e5fa  // replace with actual comment ID
+
+# 4. Update a comment
+PUT http://localhost:3000/comments/63d07bc2e1a4a76d88d8e5fa  // replace with actual comment ID
+Content-Type: application/json
+{
+  "content": "Updated comment content",
+  "owner": "User1"
+}
+
+# 5. Delete a comment
+DELETE http://localhost:3000/comments/63d07bc2e1a4a76d88d8e5fa  // replace with actual comment ID
+
+# 6. Get comments for a specific post
+GET http://localhost:3000/comments/post/63d07bc2e1a4a76d88d8e5fb  // replace with actual post ID
