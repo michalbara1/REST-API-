@@ -86,4 +86,29 @@ exports.getPostById = async (req, res) => {
   }
 };
 
+exports.updatePost = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const { title, content, senderId, owner } = req.body;
+    const updatedPost = await Post.findByIdAndUpdate(postId, {
+      title,
+      content,
+      senderId,  
+      owner,     // Optional, since owner is not required
+    }, { new: true });  // `new: true` ensures the updated document is returned
+    if (!updatedPost) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+    res.status(200).json({
+      message: 'Post updated successfully',
+      post: updatedPost,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: 'Failed to update post',
+      error: error.message,
+    });
+  }
+};
 

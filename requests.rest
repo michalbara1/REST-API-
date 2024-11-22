@@ -13,6 +13,18 @@ GET http://localhost:3000/api/getposts
 GET http://localhost:3000/api/posts/673a13dd7b94e5067bea5be9
 ###Get post by sender Id
 GET http://localhost:3000/api/posts?sender=124
+### Update Post
+PUT http://localhost:3000/api/posts/673a13dd7b94e5067bea5be9
+Content-Type: application/json
+
+{
+  "title": "Updated Post Title",
+  "content": "This is the updated content of the post.",
+  "senderId": "1234",
+  "owner": "michal"
+}
+
+
 
 
 

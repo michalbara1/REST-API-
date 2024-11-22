@@ -10,4 +10,6 @@ router.get('/posts/:id', postController.getPostById);
 
 router.get('/posts', postController.getPostsBySender);
 
+router.put('/posts/:id', postController.updatePost);
+
 module.exports = router;
