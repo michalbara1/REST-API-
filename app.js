@@ -3,11 +3,13 @@ const app = express();
 const dotenv = require("dotenv").config();  
 const mongoose = require("mongoose");
 const postRoutes = require('./routes/postRoutes'); 
+const commentRoutes = require('./routes/commentRoutes'); 
+
 
 
 app.use(express.json());  
-app.use('/api', postRoutes);  // post routes will be prefixed with /api
-
+app.use('/api', postRoutes);  // routes will be prefixed with /api
+app.use('/api', commentRoutes);
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

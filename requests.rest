@@ -23,8 +23,15 @@ Content-Type: application/json
   "senderId": "1234",
   "owner": "michal"
 }
+### Create a comment
+POST http://localhost:3000/api/comments
+Content-Type: application/json
 
-
+{
+  "content": "This is a comment",
+  "postId": "673a13dd7b94e5067bea5be9",
+  "owner": "Michal"
+}
 
 
 
