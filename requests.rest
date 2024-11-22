@@ -37,16 +37,17 @@ GET http://localhost:3000/api/comments
 ### Get all comments for a specific post
 GET http://localhost:3000/api/comments/posts/67406927fbde634430a5db31
 ### Get a specific comment by its ID
-GET http://localhost:3000/api/comments/674074e49b8f39e158b05246
+GET http://localhost:3000/api/comments/674074f39b8f39e158b0524a
 
 ### Update a specific comment by its ID
-PUT http://localhost:3000/api/comments/674074e49b8f39e158b05246
+PUT http://localhost:3000/api/comments/674074f39b8f39e158b0524a
 Content-Type: application/json
 
 {
   "content": "This is an updated comment",
   "owner": "Michal"
 }
-
+### Delete a specific comment by its ID
+DELETE http://localhost:3000/api/comments/674074f39b8f39e158b0524a
 
 
